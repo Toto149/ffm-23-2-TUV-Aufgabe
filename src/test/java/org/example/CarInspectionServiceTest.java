@@ -135,7 +135,7 @@ class CarInspectionServiceTest {
         //WHEN
         boolean actual = CarInspectionService.checkCar(car);
         //THEN
-        assertTrue(actual);
+        assertFalse(actual);
     }
 
 
