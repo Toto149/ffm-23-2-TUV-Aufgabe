@@ -44,7 +44,7 @@ class CarInspectionServiceTest {
         //WHEN
         boolean actual = CarInspectionService.hasSeatBelt(car);
         //THEN
-        assertTrue(actual);
+        assertFalse(actual);
     }
 
     @Test
@@ -65,8 +65,36 @@ class CarInspectionServiceTest {
         //WHEN
         boolean actual = CarInspectionService.hasAirbag(car);
         //THEN
-        assertTrue(actual);
+        assertFalse(actual);
     }
 
+    @Test
+    void has3Or5Doos_shouldReturnTrue_whenAmountOfDoorsIs3(){
+        //GIVEN
+        int amountOfDoors = 3;
+        Car car = new Car(4,amountOfDoors,true,true);
+        //WHEN
+        boolean actual = CarInspectionService.has3Or5Doors(car);
+        //THEN
+        assertTrue(actual);
+    }
+    void has3Or5Doos_shouldReturnTrue_whenAmountOfDoorsIs5(){
+        //GIVEN
+        int amountOfDoors = 5;
+        Car car = new Car(4,amountOfDoors,true,true);
+        //WHEN
+        boolean actual = CarInspectionService.has3Or5Doors(car);
+        //THEN
+        assertTrue(actual);
+    }
+    void has3Or5Doos_shouldReturnFalse_whenAmountOfDoorsIs4(){
+        //GIVEN
+        int amountOfDoors = 4;
+        Car car = new Car(4,amountOfDoors,true,true);
+        //WHEN
+        boolean actual = CarInspectionService.has3Or5Doors(car);
+        //THEN
+        assertFalse(actual);
+    }
 
 }
