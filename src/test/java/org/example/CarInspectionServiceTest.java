@@ -78,6 +78,7 @@ class CarInspectionServiceTest {
         //THEN
         assertTrue(actual);
     }
+    @Test
     void has3Or5Doos_shouldReturnTrue_whenAmountOfDoorsIs5(){
         //GIVEN
         int amountOfDoors = 5;
@@ -87,6 +88,7 @@ class CarInspectionServiceTest {
         //THEN
         assertTrue(actual);
     }
+    @Test
     void has3Or5Doos_shouldReturnFalse_whenAmountOfDoorsIs4(){
         //GIVEN
         int amountOfDoors = 4;
@@ -96,5 +98,45 @@ class CarInspectionServiceTest {
         //THEN
         assertFalse(actual);
     }
+    @Test
+    void checkCar_shouldReturnTrue_whenTiresIs4DoorsIs3SeatBeltIsTrueAirbagIsTrue(){
+        //GIVEN
+        int amountOfTires = 4;
+        int amountOfDoors = 3;
+        boolean seatBelt = true;
+        boolean airbag = true;
+        Car car = new Car(amountOfTires,amountOfDoors,seatBelt,airbag);
+        //WHEN
+        boolean actual = CarInspectionService.checkCar(car);
+        //THEN
+        assertTrue(actual);
+    }
+    @Test
+    void checkCar_shouldReturnTrue_whenTiresIs4DoorsIs5SeatBeltIsTrueAirbagIsTrue(){
+        //GIVEN
+        int amountOfTires = 4;
+        int amountOfDoors = 5;
+        boolean seatBelt = true;
+        boolean airbag = true;
+        Car car = new Car(amountOfTires,amountOfDoors,seatBelt,airbag);
+        //WHEN
+        boolean actual = CarInspectionService.checkCar(car);
+        //THEN
+        assertTrue(actual);
+    }
+    @Test
+    void checkCar_shouldReturnFalse_whenTiresIs4DoorsIs3SeatBeltIsFalseAirbagIsTrue(){
+        //GIVEN
+        int amountOfTires = 4;
+        int amountOfDoors = 3;
+        boolean seatBelt = false;
+        boolean airbag = true;
+        Car car = new Car(amountOfTires,amountOfDoors,seatBelt,airbag);
+        //WHEN
+        boolean actual = CarInspectionService.checkCar(car);
+        //THEN
+        assertTrue(actual);
+    }
+
 
 }

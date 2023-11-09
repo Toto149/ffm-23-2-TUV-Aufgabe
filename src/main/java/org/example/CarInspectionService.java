@@ -1,6 +1,14 @@
 package org.example;
 
 public class CarInspectionService {
+
+
+    public static boolean checkCar(Car car){
+        if(!has4Tires(car)) return false;
+        if(!has3Or5Doors(car)) return false;
+        if(!hasSeatBelt(car)) return false;
+        return hasAirbag(car);
+    }
     public static boolean has4Tires(Car car){
         return car.getNumberOfTires() == 4;
     }
@@ -19,4 +27,6 @@ public class CarInspectionService {
         }
         return false;
     }
+
+
 }
