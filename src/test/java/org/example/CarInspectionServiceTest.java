@@ -30,7 +30,7 @@ class CarInspectionServiceTest {
     void hasSeatBelt_shouldReturnTrue_whenSeatbeltIsTrue(){
         //GIVEN
         boolean seatbelt = true;
-        Car car = new Car(4,0,true,false);
+        Car car = new Car(4,0,seatbelt,false);
         //WHEN
         boolean actual = CarInspectionService.hasSeatBelt(car);
         //THEN
@@ -39,12 +39,34 @@ class CarInspectionServiceTest {
     @Test
     void hasSeatBelt_shouldReturnFalse_whenSeatbeltIsFalse(){
         //GIVEN
-        boolean seatbelt = true;
-        Car car = new Car(4,0,true,false);
+        boolean seatbelt = false;
+        Car car = new Car(4,0,seatbelt,false);
         //WHEN
         boolean actual = CarInspectionService.hasSeatBelt(car);
         //THEN
         assertTrue(actual);
     }
+
+    @Test
+    void hasAirbag_shouldReturnTrue_whenAirbagIsTrue(){
+        //GIVEN
+        boolean airbag = true;
+        Car car = new Car(4,0,false,airbag);
+        //WHEN
+        boolean actual = CarInspectionService.hasAirbag(car);
+        //THEN
+        assertTrue(actual);
+    }
+    @Test
+    void hasAirbag_shouldReturnFalse_whenAirbagIsFalse(){
+        //GIVEN
+        boolean airbag = false;
+        Car car = new Car(4,0,true,airbag);
+        //WHEN
+        boolean actual = CarInspectionService.hasAirbag(car);
+        //THEN
+        assertTrue(actual);
+    }
+
 
 }

@@ -7,4 +7,10 @@ public class CarInspectionService {
     public static boolean hasSeatBelt(Car car){
         return car.isSeatBelt();
     }
+
+    public static boolean hasAirbag(Car car) {
+        return car.isAirbag();
+    }
+
+
 }
